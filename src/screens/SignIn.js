@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import {
   BackHandler,
   Image,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -23,7 +25,12 @@ export function SignIn() {
   }, []);
 
   return (
-      <ScrollView style={{flex:1, backgroundColor:'#F8FAFC'}}>
+    <KeyboardAvoidingView
+      style={{ flex: 1, backgroundColor: "#F8FAFC" }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+
+      <ScrollView style={{flex:1, backgroundColor:'#F8FAFC', marginBottom:20}}>
         <View style={{ marginTop: 50, alignItems: "center", marginHorizontal:20 }}>
           <Text style={{color: "#38bdf8", fontSize:24, fontWeight:'500'}}>Bem vindo ao Vacine Já</Text>
           <Image
@@ -100,5 +107,6 @@ export function SignIn() {
           </View>
         </View>
       </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
